@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-azmbrop-d^q1^k&vdo3fd3mgjud^4*225(h68)!3=yt3_0s3n&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'remarcable.alexbepple.com']
 
 CATALOG_PAGE_SIZE = 12
 
@@ -117,6 +117,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static", 
+]
 
 
 # Email
@@ -127,3 +130,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://remarcable.alexbepple.com"
+]
