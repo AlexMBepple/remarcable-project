@@ -1,10 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <style>
         :root {
             --bg: #f4f5f7;
@@ -58,14 +60,8 @@
         }
 
         .brand-mark {
-            display: grid;
-            place-items: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 9px;
-            background: var(--accent);
-            color: var(--text-inverse);
-            font-weight: 800;
+            width: 28px;
+            height: 28px;
         }
 
         .search-box {
@@ -372,7 +368,7 @@
 
 <body>
     <header class="app-header">
-        <div class="brand"><span class="brand-mark">C</span> Catalog</div>
+        <div class="brand"><img type="image/png" src="{% static 'images/favicon.png' %}" class="brand-mark"/> Catalog - Remarcable</div>
         <div class="search-box">
             <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
             <input type="text" id="q" placeholder="Search name or description..." autocomplete="off">
@@ -380,7 +376,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
             </button>
         </div>
-        <div class="brand">Alex Bepple</div>
+        <div class="brand" onclick="window.open('https://alexbepple.com', '_blank');" style="cursor: pointer;">Alex Bepple</div>
     </header>
 
     <main class="container">
