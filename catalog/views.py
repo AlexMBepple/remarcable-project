@@ -10,13 +10,14 @@ def home(request):
     return render(request, 'catalog/index.html')
 
 
+# get for the categories on page load, they get cached
 def categories_api(request):
     categories = Category.objects.all().order_by('name')
     return JsonResponse({
         'categories': [{'id': c.id, 'name': c.name} for c in categories]
     })
 
-
+# get the tags that are in the current category and query filter
 def tags_api(request):
     category_id = request.GET.get('category', '')
     query = request.GET.get('q', '').strip()
@@ -37,7 +38,7 @@ def tags_api(request):
         'tags': [{'id': t.id, 'name': t.name} for t in tags]
     })
 
-
+# get for the products handling filtering for q search, category, tags
 def products_api(request):
     query = request.GET.get('q', '').strip()
     category_id = request.GET.get('category', '')
